@@ -10,6 +10,17 @@ on:
     branches: [ "main" ]
 
 jobs:
+
+  print-vars:
+    runs-on: ubuntu-latest
+    environment:
+      name: qa.env
+    steps:
+      - name: Print the vars to STDOUT
+        run: 
+          echo ENVIRONMENT_NAME = ${{ env.JWT_ENVIRONMENT }}
+          echo The password = ${{ secrets.JWT_PASSWORD }}
+
   build:
 
     runs-on: ubuntu-latest
