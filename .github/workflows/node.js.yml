@@ -4,12 +4,24 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+#  push:
+#    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
+
+  DEV:
+    run-on: ubuntu-latest
+    environment: DEV
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a script
+        run: |
+          echo "I am running a job in the DEV environment"
+
   display-variables:
     name: Display variables
 #    if: ${{ vars.USE_VARIABLES == 'true' }}
@@ -40,8 +52,8 @@ jobs:
     steps:
       - name: Print the vars to STDOUT
         run: 
-          echo ENVIRONMENT_NAME = ${{ env.JWT_ENVIRONMENT }}
-          echo The password = ${{ secrets.JWT_AUTH_PASSWORD }}
+          echo "ENVIRONMENT_NAME = ${{ env.JWT_ENVIRONMENT }}"
+          echo "The password = ${{ secrets.JWT_AUTH_PASSWORD }}"
 
   build:
 
