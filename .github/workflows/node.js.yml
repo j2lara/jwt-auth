@@ -11,10 +11,9 @@ on:
 
 jobs:
   display-variables:
-    name: ${{ vars.JOB_NAME }}
-    # You can use configuration variables with the `vars` context for dynamic jobs
+    name: Display variables
     if: ${{ vars.USE_VARIABLES == 'true' }}
-    runs-on: ${{ vars.RUNNER }}
+    runs-on: ubuntu-latest
     environment: ${{ vars.ENVIRONMENT_STAGE }}
     steps:
     - name: Use variables
@@ -28,7 +27,7 @@ jobs:
         ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
         OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
         
-    - name: ${{ vars.HELLO_WORLD_STEP }}
+    - name: ${{ vars.JWT_ENVIRONMENT }}
       if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
       uses: actions/hello-world-javascript-action@main
       with:
