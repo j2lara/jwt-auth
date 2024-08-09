@@ -53,7 +53,7 @@ jobs:
       - name: Print the vars to STDOUT
         run: |
           echo "ENVIRONMENT_NAME = " ${{ env.JWT_ENVIRONMENT }}
-          echo "Using qa.env to call env = " ${{ qa.env.JWT_ENVIRONMENT }}
+          echo "Using qa.env to call env = " ${{ JWT_ENVIRONMENT }}
           echo "The password = " ${{ secrets.JWT_AUTH_PASSWORD }}
 
   build:
