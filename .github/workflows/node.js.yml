@@ -12,7 +12,7 @@ on:
 jobs:
   display-variables:
     name: Display variables
-    if: ${{ vars.USE_VARIABLES == 'true' }}
+#    if: ${{ vars.USE_VARIABLES == 'true' }}
     runs-on: ubuntu-latest
     environment: ${{ vars.ENVIRONMENT_STAGE }}
     steps:
