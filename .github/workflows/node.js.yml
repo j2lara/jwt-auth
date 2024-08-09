@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ vars.ENVIRONMENT_STAGE }}
     steps:
-    - name: Use variables
+    - name: Use the variables
       run: |
         echo "repository variable : $REPOSITORY_VAR"
         echo "organization variable : $ORGANIZATION_VAR"
