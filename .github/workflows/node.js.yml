@@ -15,14 +15,17 @@ jobs:
   DEV:
     runs-on: ubuntu-latest
     environment: DEV
+    env:
+      MY_VARIABLE: ${{ env.MY_VARIABLE }}
     steps:
       - uses: actions/checkout@v2
 
       - name: Run a script
         run: |
           echo "I am running a job in the DEV environment"
-          echo "This is my variable ${ env.MY_VARIABLE }"
-          echo "This variable is out side quotes: " ${{ env.MY_VARIABLE }}
+          echo "Print just my variable: " ${{ MY_VARIABLE }}
+          echo "This is my variable ${{ env.MY_VARIABLE }}"
+          echo "This variable is out side quotes and using var: " ${{ var.MY_VARIABLE }}
 
   display-variables:
     name: Display variables
