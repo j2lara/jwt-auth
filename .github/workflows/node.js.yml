@@ -4,11 +4,10 @@
 name: Node.js CI
 
 on:
-#  push:
-#    branches: [ "main" ]
-#  pull_request:
-#    branches: [ "main" ]
-  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
 
@@ -16,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: DEV
     env:
-      MY_VARIABLE: ${{ var.USE_VARIABLES }}
+      MY_VARIABLE: ${{ vars.USE_VARIABLES }}
     steps:
       - uses: actions/checkout@v2
 
