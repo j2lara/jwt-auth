@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: DEV
     env:
-      MY_VARIABLE: ${{ env.MY_VARIABLE }}
+      MY_VARIABLE: ${{ env.USE_VARIABLES }}
     steps:
       - uses: actions/checkout@v2
 
