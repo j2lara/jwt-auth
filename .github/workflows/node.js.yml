@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: DEV
     env:
-      MY_VARIABLE: ${{ env.USE_VARIABLES }}
+      MY_VARIABLE: ${{ vars.USE_VARIABLES }}
     steps:
       - uses: actions/checkout@v2
 
@@ -24,7 +24,8 @@ jobs:
           echo "I am running a job in the DEV environment"
           echo "I am using jwt auth password" ${{ env.JWT_AUTH_PASSWORD }}
           echo "Print just my variable: " ${{ env.MY_VARIABLE }}
-          echo "This is my variable from repo: ${{ vars.MY_VARIABLE }}"
+          echo "Print use variables: " ${{ vars.USE_VARIABLES }}
+          echo "This is my variable from repo: $MY_VARIABLE"
           echo "This variable is out side quotes and using var: " ${{ vars.MY_VARIABLE }}
 
   display-variables:
