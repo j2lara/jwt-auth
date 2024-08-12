@@ -15,16 +15,17 @@ jobs:
     runs-on: ubuntu-latest
     environment: DEV
     env:
-      MY_VARIABLE: ${{ vars.USE_VARIABLES }}
+      MY_VARIABLE: ${{ env.USE_VARIABLES }}
     steps:
       - uses: actions/checkout@v2
 
       - name: Run a script
         run: |
           echo "I am running a job in the DEV environment"
-          echo "Print just my variable: " ${{ MY_VARIABLE }}
-          echo "This is my variable ${{ env.MY_VARIABLE }}"
-          echo "This variable is out side quotes and using var: " ${{ var.MY_VARIABLE }}
+          echo "I am using jwt auth password" ${{ env.JWT_AUTH_PASSWORD }}
+          echo "Print just my variable: " ${{ env.MY_VARIABLE }}
+          echo "This is my variable from repo: ${{ vars.MY_VARIABLE }}"
+          echo "This variable is out side quotes and using var: " ${{ vars.MY_VARIABLE }}
 
   display-variables:
     name: Display variables
